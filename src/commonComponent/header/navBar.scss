@@ -1,0 +1,42 @@
+.header-nav-bar {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .item {
+    padding: 5px 15px;
+    cursor: pointer;
+  }
+
+  .desc {
+    @include desc-black;
+    &:hover {
+      color: $dark-pink;
+    }
+  }
+
+  .box-page {
+    position: relative;
+
+    .option-page {
+      position: absolute;
+      top: 30px;
+      left: 0px;
+      // background-color: red;
+      padding: 10px 20px;
+      border-radius: 10px;
+      display: none;
+
+      .desc {
+        text-align: left;
+      }
+    }
+
+    &:hover {
+      .option-page {
+        display: block;
+      }
+    }
+  }
+}

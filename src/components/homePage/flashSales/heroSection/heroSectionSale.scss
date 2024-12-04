@@ -1,0 +1,111 @@
+.hero-section-sale {
+  margin-top: 100px;
+
+  .top {
+    width: 10%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .icon {
+      width: 20%;
+      height: 100%;
+      background-color: $dark-pink;
+      border-radius: 5px;
+    }
+
+    .desc {
+      @include desc-black;
+      color: $dark-pink;
+      font-weight: 600;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+
+    .left {
+      display: flex;
+      gap: 80px;
+      align-items: end;
+
+      .title-36 {
+        @include title-36;
+        line-height: 1;
+      }
+
+      .date-sale {
+        display: flex;
+
+        .item {
+          margin: 0 17px;
+          .desc {
+            color: var(--black, #000);
+            font-family: Poppins;
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 1.5; /* 150% */
+          }
+
+          .date {
+            color: var(--Text2, #000);
+            font-family: Inter;
+            font-size: 3.2rem;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 0.94; /* 93.75% */
+            letter-spacing: 1.28px;
+            margin-top: 4px;
+          }
+        }
+
+        .box-icon {
+          display: flex;
+          flex-direction: column;
+          justify-content: end;
+          .icon {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: $dark-pink;
+            margin-top: 2px;
+            margin-bottom: 6px;
+          }
+        }
+      }
+    }
+
+    .right {
+      .box-icon {
+        display: flex;
+        gap: 25px;
+        padding-right: 10px;
+        align-items: end;
+        height: 100%;
+
+        .icon {
+          font-size: 2.2rem;
+          cursor: pointer;
+
+          &:hover {
+            color: $dark-pink;
+          }
+
+          &:active {
+            transform: scale(0.97);
+          }
+        }
+        .icon.disable {
+          color: $dark-gray;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+@import "./responsiveHeroSection.scss";

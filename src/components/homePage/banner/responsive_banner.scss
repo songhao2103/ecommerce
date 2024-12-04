@@ -1,0 +1,62 @@
+// tablet
+@media (min-width: 740px) and (max-width: 1023px) {
+  .box-banner {
+    margin-top: 10px;
+    .list-banner {
+      transition: transform 0.7s ease-in-out;
+      .banner {
+        padding: 0;
+        height: 300px;
+        .content {
+          padding: 30px 40px;
+          gap: 15px;
+        }
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 739px) {
+  .box-banner {
+    margin-top: 5px;
+    .list-banner {
+      transition: transform 0.7s ease-in-out;
+      .banner {
+        position: relative;
+        height: 200px;
+        padding: 0;
+
+        .content {
+          position: absolute;
+          padding: 0;
+          width: 80%;
+          gap: 0;
+          bottom: 10px;
+          left: 10px;
+
+          .trademark {
+            gap: 8px;
+          }
+          .title-48 {
+            margin-top: 5px;
+            max-width: 60%;
+          }
+
+          .bottom {
+            position: absolute;
+            right: -40px;
+            bottom: 10px;
+          }
+        }
+
+        .image {
+          width: 80%;
+          margin-left: 20%;
+          img {
+          }
+        }
+      }
+    }
+  }
+}

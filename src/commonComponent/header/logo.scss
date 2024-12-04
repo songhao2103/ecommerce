@@ -1,0 +1,7 @@
+.logo {
+  width: 15%;
+  // background-color: red;
+  .title-24 {
+    @include title-24;
+  }
+}

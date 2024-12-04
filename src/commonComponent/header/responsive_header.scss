@@ -1,0 +1,40 @@
+//taplet và mobile
+@media (max-width: 1023px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .nav-bar-tablet-mobile-header {
+    display: block;
+  }
+
+  .header-nav-bar {
+    display: none;
+  }
+
+  .box-right-header {
+    width: 85%;
+    justify-content: end;
+  }
+}
+
+//taplet
+@media (min-width: 740px) and (max-width: 1023px) {
+}
+
+//mobile
+@media (max-width: 739px) {
+  .box-right-header {
+    .icon {
+      margin: 0;
+    }
+
+    .search {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import "../../../../commonComponent/cartProduct/cartProduct.scss";
+
+.box-products-sale {
+  width: 100%;
+  margin-top: 20px;
+
+  .box-list {
+    overflow: hidden;
+    .list-products-sale {
+      width: 100%;
+      display: flex;
+      transition: transform 0.4s ease;
+      .cart-product {
+        margin-right: 1.33333%;
+      }
+
+      > :nth-child(4n + 5) {
+        margin-left: -1.33333%;
+      }
+    }
+  }
+
+  .box-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+
+    .btn-dark-pink {
+      @include btn-dark-pink;
+      @include desc-black;
+      color: $white;
+      font-weight: 500;
+    }
+  }
+}
+
+@import "./responsiveProductsSale.scss";

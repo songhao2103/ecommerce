@@ -1,0 +1,15 @@
+
+
+// tablet
+@media (min-width: 740px) and (max-width: 1023px) {
+  .cart-product {
+    width: 32.44444%;
+  }
+}
+
+//Mobile
+@media (max-width: 739px) {
+  .cart-product {
+    width: 49.33335%;
+  }
+}

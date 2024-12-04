@@ -1,0 +1,94 @@
+// title-24px
+@mixin title-24 {
+  color: var(--black, #000);
+  font-family: Inter;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.72px;
+
+  @media (min-width: 740px) and (max-width: 1023px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 739px) {
+    font-size: 1.4rem;
+  }
+}
+
+//title-48
+@mixin title-48 {
+  color: var(--black, #000);
+  font-family: Inter;
+  font-size: 4.8rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25; /* 125% */
+  letter-spacing: 1.92px;
+
+  @media (min-width: 740px) and (max-width: 1023px) {
+    font-size: 3.8rem;
+  }
+
+  @media (max-width: 739px) {
+    font-size: 2.2rem;
+  }
+}
+
+//title-36
+@mixin title-36 {
+  color: var(--black, #000);
+  font-family: Inter;
+  font-size: 3.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.33; /* 133.333% */
+  letter-spacing: 1.44px;
+
+  @media (min-width: 740px) and (max-width: 1023px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 739px) {
+    font-size: 1.8rem;
+  }
+}
+
+@mixin desc-black {
+  color: var(--black, #000);
+  font-family: Poppins;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5; /* 150% */
+
+  @media (min-width: 740px) and (max-width: 1023px) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 739px) {
+    font-size: 1.3rem;
+  }
+}
+
+//btn dark pinkk
+@mixin btn-dark-pink {
+  display: inline-flex;
+  padding: 16px 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 4px;
+  background: var(--Button2, #db4444);
+  cursor: pointer;
+  box-shadow: $Box-shadow2;
+
+  &:hover {
+    background-color: #e67373;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}

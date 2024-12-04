@@ -1,0 +1,53 @@
+// tablet
+@media (min-width: 740px) and (max-width: 1023px) {
+  .box-products-sale {
+    .box-list {
+      .list-products-sale {
+        .cart-product {
+          margin-left: 0;
+        }
+        > :nth-child(3n + 4) {
+          margin-left: -1.33333%;
+        }
+      }
+    }
+
+    .box-btn {
+      margin-top: 20px;
+      .btn-dark-pink {
+        @include btn-dark-pink;
+        @include desc-black;
+        color: $white;
+        font-weight: 500;
+        padding: 12px 36px;
+      }
+    }
+  }
+}
+
+//mobie
+@media (max-width: 739px) {
+  .box-products-sale {
+    .box-list {
+      .list-products-sale {
+        .cart-product {
+          margin-left: 0;
+        }
+        > :nth-child(2n + 3) {
+          margin-left: -1.33333%;
+        }
+      }
+    }
+
+    .box-btn {
+      margin-top: 15px;
+      .btn-dark-pink {
+        @include btn-dark-pink;
+        @include desc-black;
+        color: $white;
+        font-weight: 500;
+        padding: 8px 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.box-right-header {
+  display: flex;
+  width: 40%;
+  justify-content: end;
+
+  .search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 10px;
+    max-width: 300px;
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1.4rem;
+    }
+
+    .icon-search {
+      position: absolute;
+      right: 5px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: $dark-gray;
+
+      &:hover {
+        color: $black;
+      }
+
+      &:active {
+        transform: scale(0.97);
+      }
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 4px;
+
+    &:hover {
+      background-color: $dark-pink;
+      color: $white;
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+}

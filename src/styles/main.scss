@@ -1,0 +1,13 @@
+// mixins
+@import "./mixins";
+// variables
+@import "./variables.scss";
+
+//=======================================================
+//component
+
+//header
+@import "../commonComponent/header/header.scss";
+
+// homePage
+@import "../components/homePage/homePage.scss";

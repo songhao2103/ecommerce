@@ -1,0 +1,70 @@
+.nav-bar-tablet-mobile-header {
+  display: none;
+  width: 10%;
+
+  .icon {
+    font-size: 2.4rem;
+    cursor: pointer;
+    padding-left: 10px;
+
+    &:hover {
+      color: $dark-pink;
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+
+  .overlay {
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+  }
+
+  #input-nav-bar:checked ~ .overlay {
+    display: block;
+  }
+
+  #input-nav-bar:checked ~ .list-options {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  .list-options {
+    height: 100vh;
+    width: 360px;
+    position: absolute;
+    transform: translate(-100%);
+    background-color: $white;
+    padding: 10px;
+    border: 1xp solid black;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+    opacity: 0;
+
+    .desc {
+      @include desc-black;
+      margin-bottom: 10px;
+      cursor: pointer;
+
+      &:hover {
+        color: $dark-pink;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+
+      &:hover {
+        color: $dark-gray;
+      }
+    }
+  }
+}
