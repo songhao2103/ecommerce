@@ -1,0 +1,37 @@
+//tablet
+@media (min-width: 740px) and (max-width: 1023px) {
+  .categories {
+    .list-categories {
+      display: flex;
+      flex-wrap: wrap;
+
+      .item {
+        width: 32%;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+//mobile
+@media (max-width: 739px) {
+  .categories {
+    .hero-section {
+      .top {
+        .icon {
+          height: 25px;
+          width: 18px;
+        }
+      }
+    }
+    .list-categories {
+      display: flex;
+      flex-wrap: wrap;
+
+      .item {
+        width: 49%;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

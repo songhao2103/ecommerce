@@ -41,7 +41,9 @@ button {
 /* cho tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
   .main-content {
-    max-width: 760px;
+    width: 100vw;
+    max-width: 900px;
+    padding: 0 10px;
   }
 }
 
@@ -49,6 +51,7 @@ button {
 
 @media (max-width: 739px) {
   .main-content {
-    max-width: 360px;
+    width: 100vw;
+    max-width: 420px;
   }
 } /* ======================code chung cho phần title============== */

@@ -49,9 +49,9 @@ const CartProduct = ({ product }) => {
         <p className="desc name-product">{product.nameProduct}</p>
         <div className="bottom">
           <div className="box-price">
-            <p className="desc new-price">{`${priceFormatted.newPrice} đ`}</p>
+            <p className="desc new-price">{`${priceFormatted.newPrice}đ`}</p>
             {priceFormatted.oldPrice && (
-              <p className="desc old-price">{`${priceFormatted.oldPrice} đ`}</p>
+              <p className="desc old-price">{`${priceFormatted.oldPrice}đ`}</p>
             )}
           </div>
           <div className="rating">
@@ -78,7 +78,7 @@ const CartProduct = ({ product }) => {
       </div>
 
       <div className="plane-above">
-        <div className="discount">
+        <div className={`discount ${product.discount === 0 ? "none" : ""}`}>
           <p className="desc">{`-${product.discount}%`}</p>
         </div>
         <div className="box-icon">

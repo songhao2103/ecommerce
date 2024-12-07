@@ -1,0 +1,68 @@
+.categories {
+  margin-top: 40px;
+
+  .hero-section {
+    .top {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .icon {
+        width: 20px;
+        height: 40px;
+        background-color: $dark-pink;
+        border-radius: 5px;
+        margin-right: 15px;
+      }
+
+      .desc {
+        @include desc-black;
+        color: $dark-pink;
+        font-weight: 500;
+      }
+    }
+
+    .title-36 {
+      @include title-36;
+    }
+  }
+
+  .list-categories {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .item {
+      width: 15%;
+      text-align: center;
+      padding: 25px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $dark-pink;
+
+        .icon {
+          color: $white;
+        }
+
+        .desc {
+          color: $white;
+        }
+      }
+
+      .icon {
+        font-size: 3.6rem;
+        margin-bottom: 16px;
+      }
+
+      .desc {
+        @include desc-black;
+      }
+    }
+  }
+}
+
+@import "./responsiveCategories.scss";

@@ -1,0 +1,48 @@
+//tablet
+@media (min-width: 740px) and (max-width: 1023px) {
+  .best-selling-homepage {
+    .hero-section-homepage {
+      padding-left: 10px;
+      .right {
+        .btn-dark-pink {
+          padding: 12px 36px;
+        }
+      }
+    }
+    .list-products-selling {
+      > :nth-child(4) {
+        display: none;
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 739px) {
+  .best-selling-homepage {
+    .hero-section-homepage {
+      padding-left: 10px;
+      .left {
+        .top {
+          .icon {
+            height: 27px;
+            width: 18px;
+          }
+        }
+      }
+      .right {
+        .btn-dark-pink {
+          padding: 8px 24px;
+        }
+      }
+    }
+    .list-products-selling {
+      > :nth-child(4) {
+        display: none;
+      }
+      > :nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}

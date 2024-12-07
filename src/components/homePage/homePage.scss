@@ -4,6 +4,18 @@
 //flash sale
 @import "./flashSales/flashSales";
 
+//categories
+@import "./categories/categories.scss";
+
+//best selling homepage
+@import "./bestSelling/bestSellingHomePage.scss";
+
+//featured
+@import "./featured/featured.scss";
+
+//shop services
+@import "./shopServices/shopServices.scss";
+
 .home-page {
   width: 100%;
 }

@@ -1,12 +1,15 @@
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import Header from "./commonComponent/header/Header";
-import HomePage from "./components/homePage/HomePage";
+import AppContent from "./AppContent";
+import createAppRouter from "./appRouter/BrowserRouter";
 
 function App() {
+  const router = createAppRouter();
   return (
     <div className="main-content">
-      <Header></Header>
-      <HomePage></HomePage>
+      <RouterProvider router={router}>
+        <AppContent></AppContent>
+      </RouterProvider>
     </div>
   );
 }

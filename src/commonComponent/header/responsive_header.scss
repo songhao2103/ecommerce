@@ -2,6 +2,7 @@
 @media (max-width: 1023px) {
   .header {
     justify-content: space-between;
+    z-index: 1000;
   }
 
   .logo {

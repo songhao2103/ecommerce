@@ -1,0 +1,143 @@
+// tablet
+@media (min-width: 740px) and (max-width: 1023px) {
+  .featured {
+    .list-products-featured {
+      display: grid;
+      grid-template-columns: 32% 32% 32%;
+      grid-template-rows: 300px 300px 300px;
+      gap: 1.5%;
+      margin-top: 30px;
+
+      .animate-element {
+        .content {
+          position: absolute;
+          width: 50%;
+          bottom: 0%;
+          left: 5%;
+
+          .title-24 {
+            margin-bottom: 10px;
+          }
+          .desc {
+            margin-top: 4px;
+          }
+        }
+      }
+
+      .item1 {
+        grid-column: span 2;
+        grid-row: span 2;
+        transform: translateX(-100%);
+      }
+
+      .item2 {
+        grid-column: span 3;
+        grid-row: 3 / span 1;
+        transform: translateY(100%);
+        display: flex;
+        justify-content: end;
+
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      .item3 {
+        grid-column: 3 / span 1;
+        grid-row: span 1;
+        transform: translateX(100%);
+
+        .content {
+          width: 70%;
+        }
+      }
+
+      .item4 {
+        grid-column: 3 / span 1;
+        grid-row: 2 / span 1;
+
+        .content {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+// mobile
+@media (max-width: 739px) {
+  .featured {
+    .hero-section {
+      .top {
+        display: flex;
+        gap: 10px;
+        padding-left: 10px;
+
+        .icon {
+          height: 27px;
+          width: 18px;
+        }
+      }
+
+      .title-36 {
+        margin-top: 10px;
+        padding-left: 10px;
+      }
+    }
+    .list-products-featured {
+      display: grid;
+      grid-template-columns: 49% 49%;
+      grid-template-rows: repeat(4, 1fr);
+      gap: 1%;
+      margin-top: 20px;
+
+      .animate-element {
+        .content {
+          position: absolute;
+          width: 80%;
+          bottom: 3%;
+          left: 5%;
+
+          .title-24 {
+            margin-bottom: 5px;
+          }
+          .desc {
+            margin-top: 4px;
+          }
+        }
+      }
+
+      .item1 {
+        grid-column: span 2;
+        grid-row: span 2;
+        transform: translateX(-100%);
+      }
+
+      .item2 {
+        grid-column: span 2;
+        grid-row: 4 / span 1;
+        transform: translateY(100%);
+        display: flex;
+        justify-content: end;
+
+        img {
+          height: 170px;
+          width: auto;
+        }
+      }
+
+      .item3 {
+        grid-column: span 1;
+        grid-row: 3 / span 1;
+        transform: translateX(-100%);
+      }
+
+      .item4 {
+        grid-column: 2 / span 1;
+        grid-row: 3 / span 1;
+        transform: translateX(100%);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "./formRegister/formRegister.scss";
+@import "./formLogIn/formLogIn.scss";
+.log-in-and-register {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+
+  .image {
+    width: 60%;
+    transform: translateX(-10%);
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@import "./responsivrLogInAndRegister.scss";

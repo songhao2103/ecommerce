@@ -1,0 +1,50 @@
+.best-selling-homepage {
+  margin-top: 40px;
+
+  .hero-section-homepage {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    .left {
+      .top {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+
+        .icon {
+          width: 20px;
+          height: 40px;
+          border-radius: 5px;
+          background-color: $dark-pink;
+        }
+
+        .desc {
+          @include desc-black;
+          color: $dark-pink;
+          font-weight: 500;
+        }
+      }
+
+      .title-36 {
+        @include title-36;
+      }
+    }
+
+    .right {
+      .btn-dark-pink {
+        @include btn-dark-pink;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .list-products-selling {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+}
+
+@import "./responsiveBestSellingHomePage.scss";

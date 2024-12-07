@@ -1,7 +1,8 @@
+import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <ul className="header-nav-bar">
-      <li className="item desc">Home</li>
+      <NavLink className="item desc">Home</NavLink>
       <li className="item desc">Products</li>
       <li className="item desc">Company</li>
       <div className="box-page item desc">
@@ -11,7 +12,9 @@ const NavBar = () => {
           <li className="desc">About</li>
         </ul>
       </div>
-      <li className="item desc">Sign Up</li>
+      <NavLink to="/sign-up" className="item desc">
+        Sign Up
+      </NavLink>
     </ul>
   );
 };

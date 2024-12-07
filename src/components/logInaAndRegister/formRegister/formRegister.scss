@@ -1,0 +1,80 @@
+.form-register {
+  width: 50%;
+
+  .title-36 {
+    @include title-36;
+    margin-bottom: 24px;
+  }
+  .desc {
+    @include desc-black;
+  }
+
+  form {
+    margin-top: 30px;
+    .box-input {
+      margin-bottom: 25px;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        cursor: pointer;
+      }
+
+      input {
+        padding: 5px 10px;
+        border-bottom: 2px solid #ccc;
+        margin-top: 5px;
+        width: 100%;
+
+        &:focus {
+          border-bottom: 2px solid $black;
+        }
+      }
+
+      .error {
+        color: red;
+      }
+
+      .box-tag-input {
+        display: flex;
+        position: relative;
+        width: 100%;
+        // background-color: rebeccapurple;
+
+        .box-icon {
+          position: absolute;
+          bottom: 20px;
+          right: 30px;
+          display: flex;
+
+          i {
+            position: absolute;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .btn-dark-pink {
+      @include btn-dark-pink;
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+
+  .bottom {
+    margin-top: 30px;
+
+    span {
+      border-bottom: 1px solid $black;
+      cursor: pointer;
+
+      &:hover {
+        color: $dark-pink;
+        border-color: $dark-pink;
+      }
+    }
+  }
+}
+
+@import "./responsiveFormRegister.scss";

@@ -1,0 +1,37 @@
+//tablet
+@media (min-width: $breakpoint-1) and (max-width: $lower-breakpoint-2) {
+  .footer {
+    background-color: rgb(49, 47, 47);
+
+    .bgc-footer {
+      width: 100%;
+      transform: translateX(0);
+    }
+
+    .content {
+      padding: 10px;
+    }
+  }
+}
+
+//mobile
+@media (max-width: $lower-breakpoint-1) {
+  .footer {
+    margin-top: 50px;
+    .bgc-footer {
+      width: 100%;
+      transform: translateX(0);
+      height: 550px;
+    }
+
+    .content {
+      flex-wrap: wrap;
+      padding: 10px;
+      gap: 10px;
+      .item {
+        max-width: 50%;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

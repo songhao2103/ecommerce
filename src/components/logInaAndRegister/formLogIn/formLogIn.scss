@@ -1,0 +1,76 @@
+.log-in {
+  width: 50%;
+
+  .title-36 {
+    @include title-36;
+    margin-bottom: 24px;
+  }
+
+  .desc {
+    @include desc-black;
+  }
+
+  form {
+    width: 100%;
+    margin-top: 40px;
+
+    .box-input {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+
+      input {
+        width: 100%;
+        padding: 5px 10px;
+        border-bottom: 2px solid #ccc;
+
+        &:focus {
+          border-color: $black;
+        }
+      }
+
+      .box-tag-input {
+        width: 100%;
+        display: flex;
+        position: relative;
+
+        .box-icon {
+          position: absolute;
+          right: 30px;
+          bottom: 23px;
+          display: flex;
+
+          i {
+            position: absolute;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .error {
+        color: $dark-pink;
+        margin-top: 10px;
+      }
+    }
+
+    .btn-dark-pink {
+      width: 100%;
+      @include btn-dark-pink;
+    }
+  }
+
+  .bottom {
+    margin-top: 20px;
+    span {
+      cursor: pointer;
+      border-bottom: 1px solid $black;
+
+      &:hover {
+        color: $dark-pink;
+        border-color: $dark-pink;
+      }
+    }
+  }
+}
+
+@import "./responsiveFormLogIn.scss";

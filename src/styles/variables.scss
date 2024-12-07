@@ -3,5 +3,10 @@ $cyan: #06ffff;
 $black: #000000;
 $white: #fff;
 $dark-gray: #929292;
-$Box-shadow1: 0px 0px 6px 1px #d6d5d5;
-$Box-shadow2: 0px 0px 6px 4px #c4c4c4;
+$Box-shadow1: 0px 0px 4px 1px #b4b4b4;
+$Box-shadow2: 0px 0px 4px 2px #adadad;
+//breakpoint responsive
+$breakpoint-1: 740px;
+$lower-breakpoint-1: 739px;
+$breakpoint-2: 1024px;
+$lower-breakpoint-2: 1023px;

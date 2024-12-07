@@ -1,0 +1,53 @@
+//tablet
+@media (min-width: $breakpoint-1) and (max-width: $lower-breakpoint-2) {
+  .shop-services {
+    .service {
+      width: 33%;
+
+      .bgc-icon {
+        width: 70px;
+        height: 70px;
+
+        .icon {
+          width: 50px;
+          height: 50px;
+          font-size: 2.4rem;
+        }
+      }
+    }
+  }
+}
+
+//mobile
+@media (max-width: $lower-breakpoint-1) {
+  .shop-services {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 50px;
+
+    .service {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      gap: 30px;
+
+      .bgc-icon {
+        width: 60px;
+        height: 60px;
+
+        .icon {
+          width: 45px;
+          height: 45px;
+
+          font-size: 2.2rem;
+        }
+      }
+
+      .content {
+        text-align: left;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}

@@ -33,6 +33,7 @@
   #input-nav-bar:checked ~ .list-options {
     transform: translateX(0);
     opacity: 1;
+    z-index: 1000;
   }
 
   .list-options {
