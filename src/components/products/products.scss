@@ -6,11 +6,6 @@
     border-bottom: 3px solid #ccc;
   }
 
-  .title-20 {
-    @include title-20;
-    font-weight: 400;
-  }
-
   .desc {
     @include desc-black;
   }
@@ -18,103 +13,123 @@
   .filter-bar {
     margin-top: 20px;
     display: flex;
-    gap: 3%;
-    align-items: center;
+    align-content: inherit;
+    justify-content: space-between;
 
-    .title-24 {
-      @include title-24;
-      font-size: 2.6rem;
-      text-decoration: underline;
-    }
+    .filter-by-options {
+      display: flex;
+      gap: 2%;
+      align-items: center;
+      min-width: 60%;
 
-    .item {
-      position: relative;
-
-      .box-title {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 5px 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        cursor: pointer;
-
-        &:hover {
-          .title-20 {
-            color: $dark-pink;
-          }
-        }
+      .title-24 {
+        @include title-24;
+        font-size: 2.6rem;
+        text-decoration: underline;
       }
+      .item {
+        position: relative;
 
-      .box-options {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        position: absolute;
-        right: 0;
-        margin-top: 10px;
-        padding: 5px 50px 5px 10px;
-        width: auto;
-        box-shadow: $Box-shadow2;
-        border-radius: 5px;
-        background-color: $white;
-        display: none;
-        z-index: 11;
-
-        .desc {
-          cursor: pointer;
-
-          &:hover {
-            color: $dark-pink;
-          }
-        }
-
-        .box-desc {
+        .box-title {
           display: flex;
           align-items: center;
           gap: 10px;
-          width: 150px;
+          padding: 5px 15px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          cursor: pointer;
 
           &:hover {
-            .icon {
+            .desc {
               color: $dark-pink;
             }
           }
         }
-      }
 
+        .box-options {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          position: absolute;
+          right: 0;
+          margin-top: 10px;
+          padding: 5px 50px 5px 10px;
+          width: auto;
+          box-shadow: $Box-shadow2;
+          border-radius: 5px;
+          background-color: $white;
+          display: none;
+          z-index: 11;
+
+          .desc {
+            cursor: pointer;
+
+            &:hover {
+              color: $dark-pink;
+            }
+          }
+
+          .box-desc {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 150px;
+
+            &:hover {
+              .icon {
+                color: $dark-pink;
+              }
+            }
+          }
+        }
+
+        input {
+          display: none;
+        }
+
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba($color: #000000, $alpha: 0.1);
+          display: none;
+          z-index: 10;
+        }
+
+        #sort:checked ~ .overlay {
+          display: block;
+        }
+        #sort:checked ~ .box-options {
+          display: flex;
+        }
+        #classify:checked ~ .overlay {
+          display: block;
+        }
+        #classify:checked ~ .box-options {
+          display: flex;
+        }
+        #company:checked ~ .overlay {
+          display: block;
+        }
+        #company:checked ~ .box-options {
+          display: flex;
+        }
+      }
+    }
+
+    .filter-by-search {
+      width: 37%;
+      max-width: 350px;
       input {
-        display: none;
-      }
+        border-bottom: 2px solid #ccc;
+        width: 100%;
+        padding: 5px 10px;
 
-      .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba($color: #000000, $alpha: 0.1);
-        display: none;
-        z-index: 10;
-      }
-
-      #sort:checked ~ .overlay {
-        display: block;
-      }
-      #sort:checked ~ .box-options {
-        display: flex;
-      }
-      #classify:checked ~ .overlay {
-        display: block;
-      }
-      #classify:checked ~ .box-options {
-        display: flex;
-      }
-      #company:checked ~ .overlay {
-        display: block;
-      }
-      #company:checked ~ .box-options {
-        display: flex;
+        &:focus {
+          border-color: $black;
+        }
       }
     }
   }
@@ -142,3 +157,5 @@
     }
   }
 }
+
+@import "./responsiveProducts.scss";

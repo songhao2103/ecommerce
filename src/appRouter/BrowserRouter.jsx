@@ -3,6 +3,7 @@ import AppContent from "../AppContent";
 // import HomePage from "../components/homePage/HomePage";
 import LogInAndRegister from "../components/logInaAndRegister/LogInAndRegister";
 import Products from "../components/products/Products";
+import ProductDetails from "../components/productDetails/ProductDetails";
 
 const createAppRouter = () => {
   return createBrowserRouter(
@@ -15,12 +16,16 @@ const createAppRouter = () => {
           {
             index: true,
             // element: <HomePage />,
-            element: <Products />,
+            element: <ProductDetails />,
           },
 
           {
             path: "/sign-up",
             element: <LogInAndRegister />,
+          },
+          {
+            path: "/products",
+            element: <Products></Products>,
           },
         ],
       },

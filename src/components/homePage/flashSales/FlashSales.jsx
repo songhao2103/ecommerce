@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useMemo } from "react";
 import HeroSectionSale from "./heroSection/HeroSectionSale";
 import ProductsSales from "./ProductsSales/ProductsSales";
-import { getDatas } from "../../../commonFunction/APIHandlerFunction/getDatas";
+import { getDatas } from "../../../commonFunction/APIHandlerFunction/HTTPmethods";
 import { endpointProductOfPage } from "../../../commonFunction/APIHandlerFunction/endpoint";
 
 const FlashSales = () => {

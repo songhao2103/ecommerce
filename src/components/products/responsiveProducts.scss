@@ -1,0 +1,14 @@
+//mobile
+@media (max-width: $lower-breakpoint-1) {
+  .products {
+    .filter-bar {
+      flex-direction: column-reverse;
+      gap: 10px;
+      margin-top: 10px;
+
+      .filter-by-search {
+        width: 70%;
+      }
+    }
+  }
+}

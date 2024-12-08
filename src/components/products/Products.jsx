@@ -10,6 +10,7 @@ const initialState = {
   listProductsRender: [], //danh sách products được render ra
   quantityProducstDefault: 0, //Số lượng sản phẩm 1 trang
   quantityProductsRender: 0, //Số lượng sản phẩm được render ra
+  inputSearchData: "",
 
   //Điều kiện để lọc
   filterConditions: {
@@ -77,6 +78,10 @@ const reducerProducts = (state, action) => {
       }
     }
 
+    //xử lý thay đổi của data input search
+    case "CHANGEINPUTSEARCH":
+      return { ...state, inputSearchData: action.payload.element.value };
+
     //cập nhật lại filterConditions
     case "UPDATEFILTERCONDITIONS":
       return {
@@ -90,32 +95,42 @@ const reducerProducts = (state, action) => {
     //filter products
     case "FILTERPRODUCTS": {
       const { company, classify, sort } = state.filterConditions;
-      let newListFilteredProductsData = [...state.listProductsData]
-        .filter((product) => {
-          if (company !== "all" && company !== product.company) return false;
-          if (classify !== "all" && classify !== product.deviceType)
-            return false;
-          return true;
-        })
-        .sort((a, b) => {
-          if (sort === "decrease")
-            return b.price * (100 - b.discount) - a.price * (100 - a.discount);
-          if (sort === "increase")
-            return a.price * (100 - a.discount) - b.price * (100 - b.discount);
+      const inputSearchData = state.inputSearchData;
+      let newListFilteredProductsData = [...state.listProductsData].filter(
+        (product) => {
+          const isCompanyValid =
+            company === "all" || company === product.company;
+          const isClassifyValid =
+            classify === "all" || classify === product.deviceType;
+          const isSearchValid =
+            !inputSearchData ||
+            product.nameProduct.toLowerCase().includes(inputSearchData);
 
-          return 0;
-        });
+          return isClassifyValid && isCompanyValid && isSearchValid;
+        }
+      );
 
-      if (sort === "sale") {
+      if (sort === "decrease") {
+        newListFilteredProductsData.sort(
+          (a, b) => b.price * (100 - b.discount) - a.price * (100 - a.discount)
+        );
+      } else if (sort === "increase") {
+        newListFilteredProductsData.sort(
+          (a, b) => a.price * (100 - a.discount) - b.price * (100 - b.discount)
+        );
+      } else if (sort === "sale") {
         newListFilteredProductsData = newListFilteredProductsData.filter(
           (product) => product.discount > 0
         );
       }
+
       return {
         ...state,
         listFilteredProductsData: newListFilteredProductsData,
+        quantityProductsRender: state.quantityProducstDefault,
       };
     }
+
     default:
       return state;
   }
@@ -198,163 +213,184 @@ const Products = () => {
     dispatch({
       type: "FILTERPRODUCTS",
     });
-  }, [state.filterConditions]);
+  }, [state.filterConditions, state.inputSearchData]);
+
+  //hàm theo dõi giá trị của ô input data
+  const handleChangeInputSearch = (e) => {
+    const element = e.target;
+    dispatch({
+      type: "CHANGEINPUTSEARCH",
+      payload: {
+        element,
+      },
+    });
+  };
 
   return (
     <div className="products">
       <div className="title-36">Products</div>
       <div className="filter-bar">
-        <div className="title-24">Filter</div>
-        <div className="company item">
-          <input type="checkbox" id="company" />
-          <label htmlFor="company" className="box-title">
-            <p className="title-20">Company: </p>
-            <p className="title-20">
-              {state.filterConditions.company.charAt(0).toUpperCase() +
-                state.filterConditions.company.slice(1)}
-            </p>
-          </label>
+        <div className="filter-by-options">
+          {/* <div className="title-24">Filter</div> */}
+          <div className="company item">
+            <input type="checkbox" id="company" />
+            <label htmlFor="company" className="box-title">
+              <p className="desc">Company: </p>
+              <p className="desc">
+                {state.filterConditions.company.charAt(0).toUpperCase() +
+                  state.filterConditions.company.slice(1)}
+              </p>
+            </label>
 
-          <label htmlFor="company" className="overlay"></label>
-          <div className="box-options">
-            <label
-              htmlFor="company"
-              className="desc"
-              onClick={() => handleUpdateConditions("company", "all")}
-            >
-              All
+            <label htmlFor="company" className="overlay"></label>
+            <div className="box-options">
+              <label
+                htmlFor="company"
+                className="desc"
+                onClick={() => handleUpdateConditions("company", "all")}
+              >
+                All
+              </label>
+              <label
+                htmlFor="company"
+                className="desc"
+                onClick={() => handleUpdateConditions("company", "apple")}
+              >
+                Apple
+              </label>
+              <label
+                htmlFor="company"
+                className="desc"
+                onClick={() => handleUpdateConditions("company", "dell")}
+              >
+                Dell
+              </label>
+              <label
+                htmlFor="company"
+                className="desc"
+                onClick={() => handleUpdateConditions("company", "asus")}
+              >
+                Asus
+              </label>
+              <label
+                htmlFor="company"
+                className="desc"
+                onClick={() => handleUpdateConditions("company", "samsung")}
+              >
+                Samsung
+              </label>
+              <label
+                htmlFor="company"
+                className="desc"
+                onClick={() => handleUpdateConditions("company", "logitech")}
+              >
+                Logitech
+              </label>
+            </div>
+          </div>
+          <div className="classify item">
+            <input type="checkbox" id="classify" />
+            <label htmlFor="classify" className="box-title">
+              <p className="desc">Classify: </p>
+              <p className="desc">
+                {state.filterConditions.classify.charAt(0).toUpperCase() +
+                  state.filterConditions.classify.slice(1)}
+              </p>
             </label>
-            <label
-              htmlFor="company"
-              className="desc"
-              onClick={() => handleUpdateConditions("company", "apple")}
-            >
-              Apple
+            <label htmlFor="classify" className="overlay"></label>
+            <div className="box-options">
+              <label
+                htmlFor="classify"
+                className="desc"
+                onClick={() => handleUpdateConditions("classify", "all")}
+              >
+                All
+              </label>
+              <label
+                htmlFor="classify"
+                className="desc"
+                onClick={() => handleUpdateConditions("classify", "mobile")}
+              >
+                Mobile
+              </label>
+              <label
+                htmlFor="classify"
+                className="desc"
+                onClick={() => handleUpdateConditions("classify", "table")}
+              >
+                Tablet
+              </label>
+              <label
+                htmlFor="classify"
+                className="desc"
+                onClick={() => handleUpdateConditions("classify", "laptop")}
+              >
+                Laptop
+              </label>
+              <label
+                htmlFor="classify"
+                className="desc"
+                onClick={() => handleUpdateConditions("classify", "accessory")}
+              >
+                Accessory
+              </label>
+            </div>
+          </div>
+          <div className="sort item">
+            <input type="checkbox" id="sort" />
+            <label htmlFor="sort" className="box-title">
+              <p className="desc">
+                {`Sort${
+                  state.filterConditions.sort
+                    ? ": " +
+                      state.filterConditions.sort.charAt(0).toUpperCase() +
+                      state.filterConditions.sort.slice(1)
+                    : ""
+                }`}
+              </p>
             </label>
-            <label
-              htmlFor="company"
-              className="desc"
-              onClick={() => handleUpdateConditions("company", "dell")}
-            >
-              Dell
-            </label>
-            <label
-              htmlFor="company"
-              className="desc"
-              onClick={() => handleUpdateConditions("company", "asus")}
-            >
-              Asus
-            </label>
-            <label
-              htmlFor="company"
-              className="desc"
-              onClick={() => handleUpdateConditions("company", "samsung")}
-            >
-              Samsung
-            </label>
-            <label
-              htmlFor="company"
-              className="desc"
-              onClick={() => handleUpdateConditions("company", "logitech")}
-            >
-              Logitech
-            </label>
+
+            <label htmlFor="sort" className="overlay"></label>
+
+            <div className="box-options">
+              <label
+                htmlFor="sort"
+                className="box-desc"
+                onClick={() => handleUpdateConditions("sort", "increase")}
+              >
+                <p className="desc">Prices increase</p>
+                <div className="icon">
+                  <i className="fa-solid fa-arrow-up"></i>
+                </div>
+              </label>
+              <label
+                htmlFor="sort"
+                className="box-desc"
+                onClick={() => handleUpdateConditions("sort", "decrease")}
+              >
+                <p className="desc">Prices decrease</p>
+                <div className="icon">
+                  <i className="fa-solid fa-arrow-down"></i>
+                </div>
+              </label>
+              <label
+                htmlFor="sort"
+                className="desc"
+                onClick={() => handleUpdateConditions("sort", "sale")}
+              >
+                On sale
+              </label>
+            </div>
           </div>
         </div>
 
-        <div className="classify item">
-          <input type="checkbox" id="classify" />
-          <label htmlFor="classify" className="box-title">
-            <p className="title-20">Classify: </p>
-            <p className="title-20">
-              {state.filterConditions.classify.charAt(0).toUpperCase() +
-                state.filterConditions.classify.slice(1)}
-            </p>
-          </label>
-          <label htmlFor="classify" className="overlay"></label>
-          <div className="box-options">
-            <label
-              htmlFor="classify"
-              className="desc"
-              onClick={() => handleUpdateConditions("classify", "all")}
-            >
-              All
-            </label>
-            <label
-              htmlFor="classify"
-              className="desc"
-              onClick={() => handleUpdateConditions("classify", "mobile")}
-            >
-              Mobile
-            </label>
-            <label
-              htmlFor="classify"
-              className="desc"
-              onClick={() => handleUpdateConditions("classify", "table")}
-            >
-              Tablet
-            </label>
-            <label
-              htmlFor="classify"
-              className="desc"
-              onClick={() => handleUpdateConditions("classify", "laptop")}
-            >
-              Laptop
-            </label>
-            <label
-              htmlFor="classify"
-              className="desc"
-              onClick={() => handleUpdateConditions("classify", "accessory")}
-            >
-              Accessory
-            </label>
-          </div>
-        </div>
-        <div className="sort item">
-          <input type="checkbox" id="sort" />
-          <label htmlFor="sort" className="box-title">
-            <p className="title-20">
-              {`Sort${
-                state.filterConditions.sort
-                  ? ": " +
-                    state.filterConditions.sort.charAt(0).toUpperCase() +
-                    state.filterConditions.sort.slice(1)
-                  : ""
-              }`}
-            </p>
-          </label>
-
-          <label htmlFor="sort" className="overlay"></label>
-
-          <div className="box-options">
-            <label
-              htmlFor="sort"
-              className="box-desc"
-              onClick={() => handleUpdateConditions("sort", "increase")}
-            >
-              <p className="desc">Prices increase</p>
-              <div className="icon">
-                <i className="fa-solid fa-arrow-up"></i>
-              </div>
-            </label>
-            <label
-              htmlFor="sort"
-              className="box-desc"
-              onClick={() => handleUpdateConditions("sort", "decrease")}
-            >
-              <p className="desc">Prices decrease</p>
-              <div className="icon">
-                <i className="fa-solid fa-arrow-down"></i>
-              </div>
-            </label>
-            <label
-              htmlFor="sort"
-              className="desc"
-              onClick={() => handleUpdateConditions("sort", "sale")}
-            >
-              On sale
-            </label>
-          </div>
+        <div className="filter-by-search">
+          <input
+            type="text"
+            placeholder="Search"
+            onChange={handleChangeInputSearch}
+            value={state.inputSearchData}
+          />
         </div>
       </div>
 
